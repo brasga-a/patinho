@@ -9,10 +9,10 @@ import { Card, CardContent } from '@/components/ui/card'
 import { authClient } from '@/lib/authClient'
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { Suspense, useEffect } from 'react'
 import { toast } from 'sonner'
 
-export default function page() {
+export function LoginContent() {
 
   const searchParams = useSearchParams()
   
@@ -58,5 +58,13 @@ export default function page() {
     </Card>
     
   </div>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div>Carregando...</div>}>
+      <LoginContent />
+    </Suspense>
   )
 }
