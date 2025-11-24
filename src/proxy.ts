@@ -31,66 +31,9 @@ export default async function middleware(request: NextRequest) {
   }
 
 
-	// Remove locale da pathname para verificação
-	// const pathnameWithoutLocale = pathname.replace(/^\/(en|pt)/, "");
-	// const isPublic = isPublicRoute(pathname);
-
-	// // Se o usuário NÃO está autenticado
-	// if (!session?.user) {
-	//   // Se tentar acessar rota privada, redireciona para sign-in
-	//   if (!isPublic) {
-	//     const url = request.nextUrl.clone();
-	//     url.pathname = `/${locale}/sign-in`;
-	//     return NextResponse.redirect(url);
-	//   }
-	// }
-
-	// // Se o usuário ESTÁ autenticado
-	// if (session?.user) {
-	//   if (pathname.includes("/sign-in")) console.log("debug");
-
-	//   // Está autenticado e tentando acessar sign-in, redireciona para home
-	//   if (
-	//     pathnameWithoutLocale.includes("/sign-in") ||
-	//     pathnameWithoutLocale.includes("/sign-up")
-	//   ) {
-	//     const url = request.nextUrl.clone();
-	//     url.pathname = `/${locale}`;
-	//     return NextResponse.redirect(url);
-	//   }
-
-	//   // Não completou first step e não está na página de first-step
-	//   if (
-	//     session.user.firstStepCompleted === false &&
-	//     !pathnameWithoutLocale.includes("/first-step")
-	//   ) {
-	//     const url = request.nextUrl.clone();
-	//     url.pathname = `/${locale}/first-step`;
-	//     return NextResponse.redirect(url);
-	//   }
-
-	//   // Já completou first step e está tentando acessar first-step
-	//   if (
-	//     session.user.firstStepCompleted === true &&
-	//     pathnameWithoutLocale.includes("/first-step")
-	//   ) {
-	//     const url = request.nextUrl.clone();
-	//     url.pathname = `/${locale}`;
-	//     return NextResponse.redirect(url);
-	//   }
-	// }
-
-	// ==========================================
-	// PROCESSAMENTO DO NEXT-INTL
-	// ==========================================
-
-	// ==========================================
-	// HEADERS CUSTOMIZADOS
-	// ==========================================
-	// Adiciona headers de segurança
+	
 }
 
 export const config = {
 	matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
-	runtime: "nodejs",
 };
