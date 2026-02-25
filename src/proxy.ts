@@ -5,35 +5,34 @@ import { auth } from "./lib/auth";
 
 const PUBLIC_ROUTES = ["/entrar", "/support"];
 
-
 export default async function middleware(request: NextRequest) {
-	const { pathname } = request.nextUrl;
+  const { pathname } = request.nextUrl;
 
-	// Busca session do Better Auth
-	const session = await auth.api.getSession({
-    headers: request.headers
-  })
+  const session = await auth.api.getSession({
+    headers: request.headers,
+  });
 
-	if (!session) {
-		if (!PUBLIC_ROUTES.includes(pathname)) {
-			const url = request.nextUrl.clone();
-			url.pathname = `/entrar`;
-			return NextResponse.redirect(url);
-		}
-	}
-
-  if (session){
-    if (PUBLIC_ROUTES.includes(pathname)){
+  // 🔒 Usuário não autenticado
+  if (!session) {
+    if (!PUBLIC_ROUTES.includes(pathname)) {
       const url = request.nextUrl.clone();
-      url.pathname = `/`;
-      return NextResponse.redirect(url)
+      url.pathname = "/entrar";
+      return NextResponse.redirect(url);
     }
+
+    return NextResponse.next();
   }
 
+  // 🔐 Usuário autenticado
+  if (PUBLIC_ROUTES.includes(pathname)) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    return NextResponse.redirect(url);
+  }
 
-	
+  return NextResponse.next();
 }
 
 export const config = {
-	matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
+  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"],
 };
