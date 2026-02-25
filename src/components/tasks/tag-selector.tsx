@@ -1,8 +1,5 @@
 "use client";
 
-import { Check, ChevronsUpDown, Loader2, Plus, X } from "lucide-react";
-import { useEffect, useMemo, useState, useTransition } from "react";
-import { toast } from "sonner";
 import { createTag, getTags } from "@/app/actions/tasks";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -21,6 +18,9 @@ import {
 	PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { Check, ChevronsUpDown, Loader2, Plus, X } from "lucide-react";
+import { useEffect, useMemo, useState, useTransition } from "react";
+import { toast } from "sonner";
 
 interface Tag {
 	id: string;
@@ -197,6 +197,7 @@ export function TagSelector({ value = [], onChange }: TagSelectorProps) {
 											key={preset.name}
 											value={preset.name}
 											disabled={isPending}
+											className={cn(!isSelected ? "bg-transparent!" : "")}
 											onSelect={() => handleSelectDefault(preset)}
 										>
 											<Check
@@ -223,6 +224,7 @@ export function TagSelector({ value = [], onChange }: TagSelectorProps) {
 											<CommandItem
 												key={tag.id}
 												value={tag.name}
+												className="bg-transparent!"
 												onSelect={() => toggleTag(tag.id)}
 											>
 												<Check
