@@ -9,7 +9,13 @@
       "Bash(node -e \"try { console.log\\(require\\(''@tanstack/react-form/package.json''\\).version\\) } catch\\(e\\) { console.log\\(''not installed''\\) }\")",
       "Bash(node -e \"console.log\\(require\\(''next/package.json''\\).version\\)\")",
       "Bash(npm uninstall:*)",
-      "Bash(npm i:*)"
+      "Bash(npm i:*)",
+      "Bash(npx next:*)",
+      "Bash(node -e \"const d=require\\(''''fs''''\\).readFileSync\\(0,''''utf8''''\\);const p=JSON.parse\\(d\\);console.log\\(''''main:'''',p.main\\);console.log\\(''''exports:'''',JSON.stringify\\(p.exports,null,2\\)\\)\")",
+      "Bash(node -e \"console.log\\(require\\(''@tailwindcss/oxide/package.json''\\).version\\)\")",
+      "Bash(node -e \"const p=require\\(''@tailwindcss/oxide/package.json''\\); console.log\\(''oxide optional:'', Object.keys\\(p.optionalDependencies||{}\\).join\\('', ''\\)\\)\")",
+      "Bash(node -e \"try{const p=require\\(''lightningcss/package.json''\\); console.log\\(''lc optional:'', Object.keys\\(p.optionalDependencies||{}\\).join\\('', ''\\)\\)}catch\\(e\\){console.log\\(''lightningcss not installed''\\)}\")",
+      "Bash(node -e \"const d=require\\(''fs''\\).readFileSync\\(''package-lock.json'',''utf8''\\);const p=JSON.parse\\(d\\);const key=''node_modules/@tailwindcss/oxide-linux-x64-gnu'';const entry=p.packages?.[key];console.log\\(''linux-x64-gnu in lockfile:'', entry ? ''yes, os:''+JSON.stringify\\(entry.os\\)+'' optional:''+entry.optional : ''no''\\)\")"
     ]
   }
 }
