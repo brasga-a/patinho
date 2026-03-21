@@ -1,4 +1,4 @@
-import { adminClient, emailOTPClient, usernameClient } from "better-auth/client/plugins"
+import { adminClient, emailOTPClient, magicLinkClient, usernameClient } from "better-auth/client/plugins"
 import { createAuthClient } from "better-auth/react"
 export const authClient = createAuthClient({
   baseURL: process.env.BETTER_AUTH_URL!,
@@ -6,5 +6,6 @@ export const authClient = createAuthClient({
     usernameClient(),
     adminClient(),
     emailOTPClient(),
+    magicLinkClient(),
   ]
 })

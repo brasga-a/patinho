@@ -3,7 +3,8 @@
     "allow": [
       "Bash(bunx drizzle-kit migrate)",
       "Bash(bunx drizzle-kit push)",
-      "Bash(bunx biome check --write src/app/actions/tasks.ts)"
+      "Bash(bunx biome check --write src/app/actions/tasks.ts)",
+      "Bash(npm install:*)"
     ]
   }
 }
