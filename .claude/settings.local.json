@@ -6,7 +6,10 @@
       "Bash(bunx biome check --write src/app/actions/tasks.ts)",
       "Bash(npm install:*)",
       "Bash(npm view:*)",
-      "Bash(node -e \"try { console.log\\(require\\(''@tanstack/react-form/package.json''\\).version\\) } catch\\(e\\) { console.log\\(''not installed''\\) }\")"
+      "Bash(node -e \"try { console.log\\(require\\(''@tanstack/react-form/package.json''\\).version\\) } catch\\(e\\) { console.log\\(''not installed''\\) }\")",
+      "Bash(node -e \"console.log\\(require\\(''next/package.json''\\).version\\)\")",
+      "Bash(npm uninstall:*)",
+      "Bash(npm i:*)"
     ]
   }
 }
